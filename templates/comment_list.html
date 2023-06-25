@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Comments list
+    <a href="{% url 'comments:comment-create' %}" class="btn btn-primary link-to-page">
+      Create comment
+    </a>
+  </h1>
+  {% if comment_list %}
+    <ul>
+      {% for comment in comment_list %}
+        <li>
+
+          {{ comment.text }}
+            <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Comments are not exist yet</p>
+  {% endif %}
+{% endblock %}
