@@ -12,8 +12,12 @@
       {% for comment in comment_list %}
         <li>
 
-          {{ comment.text }}
-            <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          {{ comment.text }} <br>
+            <a href="{% url 'comments:comment-create' %}" class="btn btn-primary link-to-page">
+                      Reply
+            </a>
+            {{ comment.get_replies }}
+{#            <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>#}
         </li>
       {% endfor %}
     </ul>
